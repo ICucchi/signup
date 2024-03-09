@@ -1,0 +1,41 @@
+@model List<Prodotto>;
+@{
+    ViewData["Title"] = "Cart";
+}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card mt-5">
+                <div class="card-body">
+                    <h1 class="text-center mb-4">Cart</h1>
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Quantità</th>
+                                    <th>Articolo</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @for (int i = 0; i < Model.Count; i++)
+                                { 
+                                    <tr>
+                                        <td>@Model[i].Quantita</td>
+                                        <td>@Model[i].Articolo</td>
+                                        <td>
+                                            <form method="post" action="@Url.Action("RimuoviDalCarrello", new { index = i })">
+                                                <button type="submit" class="btn btn-link"><i class="fas fa-trash-alt"></i></button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,28 @@
+@model Prodotto;
+@{
+    ViewData["Title"] = "Purchase";
+}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card mt-5">
+                <div class="card-body">
+                    <h1 class="text-center mb-4">Purchase</h1>
+                    <form method="post" asp-action="Cart">
+                        <div class="form-group">
+                            <label asp-for="Articolo" class="font-weight-bold">Che prodotto hai ordinato?</label>
+                            <input asp-for="Articolo" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Quantita" class="font-weight-bold">Quantità del prodotto:</label>
+                            <input asp-for="Quantita" class="form-control">
+                        </div>
+                        <br><br>
+                        <button type="submit" class="btn btn-primary btn-block">Cart</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
